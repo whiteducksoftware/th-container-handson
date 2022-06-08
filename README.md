@@ -4,7 +4,7 @@
 - Docker ([Get Docker](https://docs.docker.com/get-docker/))
 - Azure CLI ([Get az CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli))
 ## Instructions
-1. Download the project from <url> #tbd
+1. Clone the repository
 2. Open the project in VS Code (or your preferred IDE)
 3. Create a file named `Dockerfile` in the root directory of your project
 4. To build the image, the Dockerfile should contain the following instructions ([docs](https://docs.docker.com/engine/reference/builder))

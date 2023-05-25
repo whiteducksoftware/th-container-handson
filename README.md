@@ -15,18 +15,18 @@
     - Run the command `yarn install --production` to install all the application dependencies
     - Set the default command for a starting container to `node src/index.js`
     - the running container should listen on port 3000
-5. Build the Image and tag it with "getting-started:1.0" (in case you are building on ARM use `docker buildx` with `--platform linux/amd64` flag)
+5. Build the Image and tag it with "getting-started:1.0" (in case you are building on ARM use `--platform linux/amd64` flag)
 6. Create an ACR in Azure
     - `az login` & `az account show` to check if you are in the right subscription
-    - Create a resource group with `az group create --name container-gettingstarted-<shortname> --location westeurope`
+    - Create a resource group with `az group create --name container-gettingstarted-<shortname> --location westeurope`e
     - Create an ACR with `az acr create --resource-group container-gettingstarted-<shortname> --name container0gettingstarted0<shortname> --sku Basic --admin-enabled`
-    - log in to the ACR after creation with `az acr login --name container0gettingstarted0<shortname>`
     - check the output and write down the "loginServer" value
+    - log in to the ACR after creation with `az acr login --name container0gettingstarted0<shortname>`
 7. Re-tag the image with `<loginServer>/getting-started:1.0`
-8. Push the image to the ACR
+8. Push the image to the ACR (`docker push` command)
 9. Deploy the image to Azure Container Apps.
     - (Optional) Execute the following commands to upgrade your Azure CLI
       - `az extension add --name containerapp --upgrade`
     - Create an ACA environment with `az containerapp env create --name getting-started-aca --resource-group container-gettingstarted-<shortname> --location westeurope`
-    - Deploy your image to the ACA environment (find the credentials of your ACR in Azure) with `az containerapp create --name <name> --resource-group <resourceGroupName> --environment <AcaEnvName> --image <imageName:tag> --target-port <port> --ingress 'external' --query properties.configuration.ingress.fqdn --registry-server <loginServer> --registry-username <loginUsername> --registry-password <loginPassword>`
+    - Deploy your image to the ACA environment (find the credentials of your ACR in Azure) with `az containerapp create --name <name> --resource-group <resourceGroupName> --environment <AcaEnvName> --image <loginServer>/<imageName:tag> --target-port <port> --ingress 'external' --query properties.configuration.ingress.fqdn --registry-server <loginServer> --registry-username <loginUsername> --registry-password <loginPassword>`
     - Copy the URL from the output and verify that your app is online

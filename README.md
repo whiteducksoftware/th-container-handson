@@ -18,7 +18,7 @@
 5. Build the Image and tag it with "getting-started:1.0" (in case you are building on ARM use `--platform linux/amd64` flag)
 6. Create an ACR in Azure
     - `az login` & `az account show` to check if you are in the right subscription
-    - Create a resource group with `az group create --name container-gettingstarted-<shortname> --location westeurope`e
+    - Create a resource group with `az group create --name container-gettingstarted-<shortname> --location westeurope --tags purpose=handson`
     - Create an ACR with `az acr create --resource-group container-gettingstarted-<shortname> --name container0gettingstarted0<shortname> --sku Basic --admin-enabled`
     - check the output and write down the "loginServer" value
     - log in to the ACR after creation with `az acr login --name container0gettingstarted0<shortname>`

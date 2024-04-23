@@ -9,7 +9,7 @@
 3. Create a file named `Dockerfile` in the root directory of your project
 4. To build the image, the Dockerfile should contain the following instructions ([docs](https://docs.docker.com/engine/reference/builder))
     - Set the base image to `node:12-alpine`
-    - Run the command `apk add --no-cache python2 g++ make` to install some packages
+    - Run the command `apk add --no-cache python3 g++ make` to install some packages
     - Set the working directory to `/app` for any following command in the dockerfile
     - Copy all files from the current context of the Dockerfile to the current working directory
     - Run the command `yarn install --production` to install all the application dependencies

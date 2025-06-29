@@ -1,9 +1,12 @@
 # Hands-on
 
 ## Prerequisites
+
 - Docker ([Get Docker](https://docs.docker.com/get-docker/))
 - Azure CLI ([Get az CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli))
+
 ## Instructions
+
 1. Clone the repository
 2. Open the project in VS Code (or your preferred IDE)
 3. Create a file named `Dockerfile` in the root directory of your project
@@ -30,3 +33,7 @@
     - Create an ACA environment with `az containerapp env create --name getting-started-aca --resource-group container-gettingstarted-<shortname> --location westeurope`
     - Deploy your image to the ACA environment (find the credentials of your ACR in Azure) with `az containerapp create --name <name> --resource-group <resourceGroupName> --environment <AcaEnvName> --image <loginServer>/<imageName:tag> --target-port <port> --ingress 'external' --query properties.configuration.ingress.fqdn --registry-server <loginServer> --registry-username <loginUsername> --registry-password <loginPassword>`
     - Copy the URL from the output and verify that your app is online
+
+# Demo
+
+Find all demos in the [demo directory](./demo/).
